@@ -13,11 +13,15 @@ mod jwt;
 mod schema;
 mod user;
 
+use std::fs::File;
+use std::io::BufReader;
+
 use actix_cors::Cors;
 use actix_identity::{CookieIdentityPolicy, IdentityService};
 use actix_web::middleware::Logger;
 use actix_web::{web, App, HttpServer};
-use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
+use rustls::internal::pemfile::{certs, rsa_private_keys};
+use rustls::{NoClientAuth, ServerConfig};
 use time::Duration;
 
 #[actix_web::main]
@@ -48,13 +52,17 @@ async fn main() -> std::io::Result<()> {
     let port = opt.port;
 
     // load ssl keys
-    let mut builder = SslAcceptor::mozilla_intermediate(SslMethod::tls()).unwrap();
-    builder
-        .set_private_key_file("keys/key.pem", SslFiletype::PEM)
-        .unwrap();
-    builder
-        .set_certificate_chain_file("keys/cert.pem")
-        .unwrap();
+    let mut config = ServerConfig::new(NoClientAuth::new());
+    let cert_file = &mut BufReader::new(File::open("keys/actix_ex.crt").unwrap());
+    let key_file = &mut BufReader::new(File::open("keys/actix_ex.key").unwrap());
+    let cert_chain = certs(cert_file).unwrap();
+    let mut keys = rsa_private_keys(key_file).unwrap();
+    if keys.is_empty() {
+        eprintln!("Could not locate RSA private keys.");
+        std::process::exit(1);
+    }
+    config.set_single_cert(cert_chain, keys.remove(0)).unwrap();
+
 
     // Server
     let server = HttpServer::new(move || {
@@ -90,7 +98,7 @@ async fn main() -> std::io::Result<()> {
             .configure(graphql::route)
     })
     // Running at `format!("{}:{}",port,"0.0.0.0")`
-    .bind_openssl(("0.0.0.0", port), builder)
+    .bind_rustls(("0.0.0.0", port), config)
     .unwrap()
     // Starts server
     .run();
