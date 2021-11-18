@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "1daa8ee3-8fe0-466d-9ef8-3a38e8128222",
+		"name": "Actix-EX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"15252114321@163.com\",\r\n    \"password\": \"11223344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://101.35.18.167/user/login",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"liuhh10\",\r\n    \"email\": \"152521143210@163.com\",\r\n    \"password\": \"11223344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://101.35.18.167/user/register",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://101.35.18.167/user/me",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiNGE5YjIyZDMtMGEwZS00YmUyLWE2OGYtNDFhYjYyZDk1ZDk2IiwiaWF0IjoxNjM3MTk5NDI1LCJleHAiOjE2MzcyODU4MjUsImVtYWlsIjoiMTUyNTIxMTQzMjEwQDE2My5jb20iLCJyb2xlIjoidXNlciJ9.tyMVqsboTf4Vp7a99-QP8CaqQwWwQd5vxwoMBqataVVR5xhn0_LI1oJa0hC3BWtX0N1Pr8HiFPXo6N1E3CKzqBLNGEKmtXisxU6q_BdUdP_Jpyopv7yT2QngwwoxlRj0SGuUD76_etvujlo2E4pDQ1if6PCsunyP-3wSCqFJonIi7GVax0GRVwmeo4cvS5A17cNz25fq5pqNnJJb0j4CiMJCJ5tZxyzkkQcvmQkP0UF9YToOnNvinSTrQntlY7jxtWxPBaEDBbcv-erfK3UOjVw8pwXxwbt0F1bi-u50twBlcagf4dMrZoa6cPpLFTso1k2OjJa3WDc6hh7c5u0KYdH_fL6OG9ZTu7GLG0KP9h96CYXmPo44CMS0nbkjIhHgmH-apiJ4lGap27G3Em9so08REKMEBINSPZRmIX1FEKq1f5Qaq9e4TxVcgmmxuF8KE4jTmeh_2YJOgkFYnAFhee55hU7RtkndICaCYuXZXHtsDXuYEU24fX_OBCG_9cUhjAQh9zV8bhIKfg1pl7hqpDAbfROiU6SLDuzquDht2R34pb34NXtlPCd2xFHKFKGeGYpineA4D8M5Zq963B9BBUbrBI-O1-lJqVp0KYTw809a5rtretn4YFfDJx0fF57WS0EeTj7gAmRDNX-osho2hpmgMfZDTAlIDEnds6dZYMI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ListUsers {\r\n    users {\r\n        name\r\n        userUuid\r\n        email\r\n        createdAt\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://101.35.18.167/graphql",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DecodeToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiNGE5YjIyZDMtMGEwZS00YmUyLWE2OGYtNDFhYjYyZDk1ZDk2IiwiaWF0IjoxNjM3MjAzMzg2LCJleHAiOjE2MzcyODk3ODYsImVtYWlsIjoiMTUyNTIxMTQzMjEwQDE2My5jb20iLCJyb2xlIjoidXNlciJ9.hCQMUDU2nmc7pm-bIBqeUPl9gjCgfE8Bw6qk89IIR4gHM_RSJktaPTEix3H0UeFhbCcFFlgf9Jd8hZg4fQEuu0LdeDF2zLSVod1xaS0VWLM9ftzbx3mLykqhTYEbegn_xiRs9nsovzbNPnFBZaC48CIYNq59ykfNsf9h0jezVFbGDMKEwdeXqHf2l6Dy6nXAEdyo-onjnfT-AwM2ZZcAzC5qY3h_mYKVGCfF_k7iwZbuzUz6gAABX2RkcYMkIdc6YoCRH1vDaXqUsfOC9UwGVd3MJmS3NYG6Zp9FlYuqHW_wBEVIVKkQhMSereH-8MxniA4R0ekaHRd1YekJqksaOxeTX7sIz2cuVV5gQuc-ksVR9qOu62y4_2eEKgO4EdBjOaVU4YbGYQ3iML2BVKiRpvVa0aEZfFsD8-let7A_f7Wut3gq5sT01u9KGhjjSCYgd9NxOGrja6Hf-2EvP6r6lE60XnsbL_6ACvptXk-6eoMeHk-Bq36n0w0WITIrhtAsykvnDkuExa4RVNxBS9z45pMr6sZdMb58QNT3iTabkBSW8l1JIVfpUluw2RXR2iFHQ8j2A8naltxIyM9OJ6-9onyPz89nKkuWowUGWSNQDi5fQkXxQiJk0qyWmJGUwiSOvpdL9hnOx6Fhhs4pDhdo0OJeedsseMkckZVDTs-MoIk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query decodeTokenQuery {\r\n\tdecodeToken {\r\n\t\temail\r\n\t\tiss\r\n\t\tiat\r\n\t\texp\r\n\t\tsub\r\n\t}\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://101.35.18.167/graphql",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query tokenQuery {\r\n    generateToken {\r\n        bearer\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://101.35.18.167/graphql",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://101.35.18.167/user/logout",
+					"protocol": "https",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

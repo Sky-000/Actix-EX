@@ -5,7 +5,7 @@ use structopt::StructOpt;
 #[structopt(name = "actix-ex")]
 pub(crate) struct Opt {
     /// Port to listen to
-    #[structopt(short, long, env = "PORT", default_value = "8080")]
+    #[structopt(short, long, env = "PORT", default_value = "443")]
     pub port: u16,
 
     /// Domain
@@ -28,6 +28,10 @@ pub(crate) struct Opt {
     /// this can only be set if you have https
     #[structopt(long, env = "HTTPS_COOKIE")]
     pub secure_cookie: bool,
+
+    /// Use http --> https
+    #[structopt(long, env = "REDIRECT")]
+    pub redirect: bool,
 
     /// Auth duration in hours,
     /// this is used for cookie and JWT
