@@ -29,7 +29,7 @@ pub(super) async fn graphql(
 }
 
 pub(super) fn playground(opt: web::Data<Opt>) -> HttpResponse {
-    let html = playground_source(&format!("https://{}:{}/graphql", opt.domain, opt.port));
+    let html = playground_source(&format!("http://{}:{}/graphql", opt.domain, opt.port));
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(html)
