@@ -68,14 +68,14 @@ async fn main() -> std::io::Result<()> {
                     .max_age_time(auth_duration)
                     .secure(secure_cookie),
             ))
-            // .wrap(
-            //     Cors::default()
-            //         .allow_any_origin()
-            //         .allow_any_method()
-            //         .allow_any_header()
-            //         .supports_credentials()
-            //         .max_age(3600),
-            // )
+            .wrap(
+                Cors::default()
+                    .allow_any_origin()
+                    .allow_any_method()
+                    .allow_any_header()
+                    .supports_credentials()
+                    .max_age(3600),
+            )
             // Sets routes via secondary files
             .configure(user::route)
             .configure(graphql::route)

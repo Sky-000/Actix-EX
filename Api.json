@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "1daa8ee3-8fe0-466d-9ef8-3a38e8128222",
+		"name": "Actix-EX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"liuhh\",\r\n    \"email\": \"15252114323@163.com\",\r\n    \"password\": \"11223344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/user/register",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"15252114323@163.com\",\r\n    \"password\": \"11223344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/user/login",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://101.35.18.167/user/logout",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://101.35.18.167/user/me",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Graphql-Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiY2QyZWFmYzQtZDdmMi00ODU2LWIyYWEtMGNhNWM1YzFhMDcxIiwiaWF0IjoxNjM3MzA5NjQxLCJleHAiOjE2MzczOTYwNDEsImVtYWlsIjoiMTUyNTIxMTQzMjNAMTYzLmNvbSIsInJvbGUiOiJ1c2VyIn0.Ks93QlIzIMBZWqfBV1qv14Ezo70XB6cGfFSdWeT8MHmKr0O2JsDdJiV7-YLQoj0CIjlEwhL5KNSRevgGro885uZOKudCwWJ6XASkj0sh_YUzvXaq-V2uCxFl7PcaPmGs7mlCtkHaWjxT3saICCza8cWnb7qQ8Jr1WiTmpwuBN7xCEptIJw8C0Y0-TZIWEbYHAGlGeRC8R1qIDHj8NGBlJS5H3sDlHNZt-Ohoor3dHhlMRwqOEig9n6VRxg8PR5KW2r-bX0jJTxs2jSVV65xdF_jnpQWObmQ7Zx4e3rbo0t301NCmN2bSe489mouRzstDnzZgrXwFxli_jQ1fbE4-NY5PDOZJBxbr762wwiqA8vL4EO08LzQwqtblEBq1dH5NmcoEo33L07vCOzIKJirGomQVajVfGmOal2eziBoeJTJTTDo3h4O48UIizyS8mX8Toi2BMgdReV6O-KsXsXI_H0VPDZN5jWbWXJhpiV4OTWZEpUgZOXnz1x381wjoxqpjeAu158OW9giWd8eqynaR5hu1KfzYJT2PDF9lZWjIKeTVCVKp6oNN5pQy2AVrcEYSbFIh8C-Eesu_pqQtIznDzB1hy8B7Wj6E5iI9Iez5GEHShy7zIadDRVI8piMUDEbQIW0U7gxAAGAgJj75YNEovSeqCfkU_DCRgMvVeDMtQmM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    register(\r\n        data : {\r\n            name: \"liuhh\"\r\n            email: \"15252114328@163.com\"\r\n            password: \"11223344\"\r\n            }\r\n    ){\r\n        userUuid\r\n        email\r\n        role\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/graphql",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Graphql-ListUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiNGE5YjIyZDMtMGEwZS00YmUyLWE2OGYtNDFhYjYyZDk1ZDk2IiwiaWF0IjoxNjM3MTk5NDI1LCJleHAiOjE2MzcyODU4MjUsImVtYWlsIjoiMTUyNTIxMTQzMjEwQDE2My5jb20iLCJyb2xlIjoidXNlciJ9.tyMVqsboTf4Vp7a99-QP8CaqQwWwQd5vxwoMBqataVVR5xhn0_LI1oJa0hC3BWtX0N1Pr8HiFPXo6N1E3CKzqBLNGEKmtXisxU6q_BdUdP_Jpyopv7yT2QngwwoxlRj0SGuUD76_etvujlo2E4pDQ1if6PCsunyP-3wSCqFJonIi7GVax0GRVwmeo4cvS5A17cNz25fq5pqNnJJb0j4CiMJCJ5tZxyzkkQcvmQkP0UF9YToOnNvinSTrQntlY7jxtWxPBaEDBbcv-erfK3UOjVw8pwXxwbt0F1bi-u50twBlcagf4dMrZoa6cPpLFTso1k2OjJa3WDc6hh7c5u0KYdH_fL6OG9ZTu7GLG0KP9h96CYXmPo44CMS0nbkjIhHgmH-apiJ4lGap27G3Em9so08REKMEBINSPZRmIX1FEKq1f5Qaq9e4TxVcgmmxuF8KE4jTmeh_2YJOgkFYnAFhee55hU7RtkndICaCYuXZXHtsDXuYEU24fX_OBCG_9cUhjAQh9zV8bhIKfg1pl7hqpDAbfROiU6SLDuzquDht2R34pb34NXtlPCd2xFHKFKGeGYpineA4D8M5Zq963B9BBUbrBI-O1-lJqVp0KYTw809a5rtretn4YFfDJx0fF57WS0EeTj7gAmRDNX-osho2hpmgMfZDTAlIDEnds6dZYMI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    users {\r\n        name\r\n        userUuid\r\n        email\r\n        createdAt\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/graphql",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Graphql-DecodeToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiY2QyZWFmYzQtZDdmMi00ODU2LWIyYWEtMGNhNWM1YzFhMDcxIiwiaWF0IjoxNjM3MzEyMzkyLCJleHAiOjE2MzczOTg3OTIsImVtYWlsIjoiMTUyNTIxMTQzMjNAMTYzLmNvbSIsInJvbGUiOiJ1c2VyIn0.F5XrM87g4pTJ4tELtlyJKhSUAVkyPjmao0wI0MciwgnskaqhlJNLkr7s-5M139j4WBTKl2KY65FAwDUWwx0QJQnRrR2VmIGJLPgv8UyUVciJv4KRUAs2u5VnORW8TaBgetU0ezfIA5xqhGyu541N5csXG5Ndj9YhTF1YVNevSAyES863fIYHy-JNdd2NKTrF_o-WOhgRcS8Hz1WDFapSLzhF4Vk3ebaFys2XYrqTtwWCv2-sBJvUcWt00vGBFE5UGjjRWCZfbLQ8y0uJVMzmqrNh40cDM5D5A-1MZ60nJ8g3I-vbnRVHM-8Ckf4vmansBTMXzwpCmJ3qut6u4eKl7mVmfdVi5f8Eq8lOgTAImJGOGgIbp9BrU8Lr3AJh6R0FTjGg6cOcB73_YEUEZ5lT2-dV87mtueCh0pjgDDIvuJi1lcJ35Zy0yVyAqXr8L9YmrtCpffghK1AdlGmRSO33ZeR5RCei8SWYt83GfUUd6JhE2VN2O-PCRV2h0Gqhp1gJL1uuH6wuZ53w6T3yxT8gSHAq_L_jDDalmUZeHnvu8URGfvsUbl60iyi1cGt3IgIcoA6Vo2ViX-j77YX8VzioelODKlRd00Cz63xkI5ge3ztPVEn33IDv1D2-JHwQ8OXhBqau-xG4hPHRKo8qUDyiQqlKwgM0Sk4YbUxYp4j17Ek",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n\tdecodeToken {\r\n\t\temail\r\n\t\tiss\r\n\t\tiat\r\n\t\texp\r\n\t\tsub\r\n\t}\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/graphql",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Graphql-GenerateToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIxMDEuMzUuMTguMTY3Iiwic3ViIjoiY2QyZWFmYzQtZDdmMi00ODU2LWIyYWEtMGNhNWM1YzFhMDcxIiwiaWF0IjoxNjM3MzA5NjA5LCJleHAiOjE2MzczOTYwMDksImVtYWlsIjoiMTUyNTIxMTQzMjNAMTYzLmNvbSIsInJvbGUiOiJ1c2VyIn0.I9uKEwOwHBjOhfdlbTc994dCKcSu3xqlLfQkHyu0i3kb7n1kNlbXN0kKWcLuAmyqzoI2iGgRUnioQeg6zAKsuuS83R8v1pQ73hdjtJoZEVV9YZBxZoaBsOnXQQldq02Ow8s26tj_ktDZOv2w5N8ZtZiDKSMhgbVVvmuGeX7mfhK3zvpCkwhYVW-DUaY8uckR0qur8ej2Wf5rrWycq9W7mCon6QrbvsTk59Etk7bQ2L-TaY4C3iMe-KbcRk8X4dytzX7TAE5xaGlTjJecCd6KC2KEKWD1XLuBQDfZ16seiFKfvIVxBD5i8SP8PrimpWpPb5uMeA0xX2pNJerUenHWna93rivngMAf6Z2oTo2Kv_wlzmMoG_DHwQVGOisdzAxyAONiAOR_SsLq9Cn4jFpMYzkgYcmTMUj2tzW84pREOjQyuYHwpMLCZnz9N3HatrM-BJEFfz8pO9A8Yi7BxkhzOaCThBo5waRXXHj9XuPs48kMWIiGzI9vP5ve1UyvltwEe-dyWANEVufiAiZMUBODQbbFJEb33AL4tLSe-RBgBW88jqdD20Ee6ZQtlV38MmYpkGi8c_2ud6ewKgszdTVV9uGWWVMwH5VMwd3A46eCILKodLOODFicwoFTw45WkvR37_a8qxa4WxRQq70UBQpJG75DUUpMAjV3sxGoM--lvKs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    generateToken {\r\n        bearer\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://101.35.18.167/graphql",
+					"protocol": "http",
+					"host": [
+						"101",
+						"35",
+						"18",
+						"167"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
