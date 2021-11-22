@@ -85,7 +85,7 @@ async fn main() -> std::io::Result<()> {
     .unwrap()
     // Starts server
     .run();
-    eprintln!("Start Actix-EX Successful");
+    eprintln!("Start Actix-EX Successful 😀");
     eprintln!("Listening on 0.0.0.0:{}", port);
 
     // Awaiting server to exit

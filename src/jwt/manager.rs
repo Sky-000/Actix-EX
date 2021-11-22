@@ -1,7 +1,7 @@
 use crate::errors::ServiceError;
 use crate::jwt::model::Claims;
 use crate::user::model::SlimUser;
-use jsonwebtoken::{Algorithm, EncodingKey, DecodingKey, Header, Validation, decode, encode};
+use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 
 pub fn create_token(
     user: &SlimUser,

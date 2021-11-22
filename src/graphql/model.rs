@@ -44,15 +44,15 @@ impl QueryRoot {
 
         crate::user::has_role(&context.user, "user")?;
 
-        user::list::find_all_users(&context, limit, offset)
+        user::list::find_all_users(context, limit, offset)
     }
 
     pub fn generate_token(context: &Context) -> ServiceResult<Token> {
-        user::token::generate(&context)
+        user::token::generate(context)
     }
 
     pub fn decode_token(context: &Context) -> ServiceResult<&ClaimsResponse> {
-        user::token::decode(&context)
+        user::token::decode(context)
     }
 }
 
@@ -63,8 +63,7 @@ impl Mutation {
     pub fn register(context: &Context, data: UserData) -> ServiceResult<SlimUser> {
         use crate::user::service::register::create_user;
         let conn: &PgConnection = &context.db;
-
-        Ok(create_user(data, conn)?)
+        create_user(data, conn)
     }
 }
 
