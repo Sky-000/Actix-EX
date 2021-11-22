@@ -34,3 +34,7 @@ pub(super) fn playground(opt: web::Data<Opt>) -> HttpResponse {
         .content_type("text/html; charset=utf-8")
         .body(html)
 }
+
+pub(super) fn index() -> HttpResponse {
+    HttpResponse::Ok().json(String::from("Hello Actix-EX!"))
+}
