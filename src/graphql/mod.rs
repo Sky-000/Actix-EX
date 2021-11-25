@@ -1,6 +1,5 @@
-use actix_web::web;
 use actix_files::Files;
-
+use actix_web::web;
 
 mod handler;
 pub mod model;

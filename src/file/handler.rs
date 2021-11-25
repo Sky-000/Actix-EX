@@ -22,7 +22,7 @@ pub async fn save_file(user: LoggedUser, mut payload: Multipart) -> Result<HttpR
 
                 let filename = content_disposition.get_filename().map_or_else(
                     || Uuid::new_v4().to_string(),
-                    |f| sanitize_filename::sanitize(f),
+                    sanitize_filename::sanitize,
                 );
                 let filepath = format!("/root/ex/{}", filename);
 
