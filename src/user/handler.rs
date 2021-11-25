@@ -65,3 +65,41 @@ pub fn logout(id: Identity) -> HttpResponse {
     id.forget();
     HttpResponse::Ok().finish()
 }
+
+pub fn login_html() -> HttpResponse {
+    let html = r#"<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>login</title>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+      </head>
+      <body>
+        <input id="email" type="text" name="email" placeholder="Email" /><br />
+        <input id="password" type="password" placeholder="Password" /><br />
+        <button id="submit">Login</button>
+      </body>
+      <script type="text/javascript">
+        $('#submit').click(function () {
+          var myHeaders = new Headers();
+          myHeaders.append('Content-Type', 'application/json');
+          var email = $('#email').val();
+          var password = $('#password').val();
+          var raw = JSON.stringify({
+            email: email,
+            password: password,
+          });
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+          };
+          fetch('http://101.35.18.167/user/login', requestOptions)
+            .then((response) => console.log(response.text()))
+            .then((result) => console.log(result))
+            .catch((error) => console.log(error));
+        });
+      </script>
+    </html>"#;
+    HttpResponse::Ok().body(html)
+}

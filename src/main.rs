@@ -9,6 +9,7 @@ mod cli_args;
 mod database;
 mod errors;
 mod graphql;
+mod file;
 mod jwt;
 mod schema;
 mod user;
@@ -79,6 +80,7 @@ async fn main() -> std::io::Result<()> {
             // Sets routes via secondary files
             .configure(user::route)
             .configure(graphql::route)
+            .configure(file::route)
     })
     // Running at `format!("{}:{}",port,"0.0.0.0")`
     .bind(("0.0.0.0", port))
