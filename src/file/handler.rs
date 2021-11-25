@@ -36,14 +36,17 @@ pub async fn save_file(user: LoggedUser, mut payload: Multipart) -> Result<HttpR
                 }
             }
 
-            Ok(HttpResponse::Ok().into())
+            Ok(HttpResponse::Ok().json("Upload Successful!!!"))
         }
     }
 }
 
 pub fn upload(user: LoggedUser) -> HttpResponse {
     let html = r#"<html>
-        <head><title>Upload File To EX</title></head>
+        <head>
+        <meta charset="UTF-8" />
+        <title>Upload File To EX</title>
+        </head>
         <body>
             <form target="/upload" method="post" enctype="multipart/form-data">
                 <input type="file" multiple name="file"/>
