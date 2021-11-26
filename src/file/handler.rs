@@ -7,7 +7,7 @@ use actix_web::{web, Error, HttpResponse};
 use futures_util::TryStreamExt as _;
 use uuid::Uuid;
 
-pub async fn save_file(user: LoggedUser, mut payload: Multipart) -> Result<HttpResponse, Error> {
+pub async fn upload(user: LoggedUser, mut payload: Multipart) -> Result<HttpResponse, Error> {
     match user.0 {
         None => Err(Error::from(
             HttpResponse::Unauthorized().json(ServiceError::Unauthorized),
@@ -38,25 +38,5 @@ pub async fn save_file(user: LoggedUser, mut payload: Multipart) -> Result<HttpR
 
             Ok(HttpResponse::Ok().json("Upload Successful!!!"))
         }
-    }
-}
-
-pub fn upload(user: LoggedUser) -> HttpResponse {
-    let html = r#"<html>
-        <head>
-        <meta charset="UTF-8" />
-        <title>Upload File To EX</title>
-        </head>
-        <body>
-            <form target="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" multiple name="file"/>
-                <button type="submit">Submit</button>
-            </form>
-        </body>
-    </html>"#;
-
-    match user.0 {
-        None => HttpResponse::Unauthorized().json(ServiceError::Unauthorized),
-        Some(_) => HttpResponse::Ok().body(html),
     }
 }
